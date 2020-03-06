@@ -2,7 +2,7 @@
 <html lang="en-US">
   <head>
 
-    
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.5.0 -->
@@ -34,8 +34,19 @@
         <a href="https://github.com/Tanitulger/Louhau-Browser" class="btn">View on GitHub</a>
       
       
-        <a href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-WIN64.zip" class="btn">Download for Windows</a>
-        <a href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-Darwin64.zip" class="btn">Download for macOS</a>
+        <a href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-WIN64.zip" class="btn" id="dl">Download for Windows v</a>
+        <a href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-Darwin64.zip" class="btn" id="dl2">Download for macOS v</a>
+      
+            <script>
+        $.get("https://raw.githubusercontent.com/Tanitulger/Louhau-Browser/master/update.json?raw=true",
+  function(data){
+    //リクエストが成功した際に実行する関数
+    //alert("Data Loaded: " + data);
+          document.getElementById("dl").innerHTML += data;
+          document.getElementById("dl2").innerHTML += data;
+  }
+);
+          </script>
       
     </header>
 
@@ -232,5 +243,6 @@
     </main>
   </body>
 </html>
+
 
 
