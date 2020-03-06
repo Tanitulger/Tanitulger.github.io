@@ -26,7 +26,7 @@
   </head>
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
-
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <header class="page-header" role="banner">
       <h1 class="project-name">勞校瀏覽器</h1>
       <h2 class="project-tagline">一個能讓內地學生存取勞校網的簡單實用瀏覽器.</h2>
@@ -34,10 +34,19 @@
         <a href="https://github.com/Tanitulger/Louhau-Browser" class="btn">在 GitHub 上查看</a>
       
       
-        <a href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-WIN64.zip" class="btn">Download for Windows</a>
-        <a href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-Darwin64.zip" class="btn">Download for macOS</a>
+        <a id='dl' href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-WIN64.zip" class="btn">Download for Windows</a>
+        <a id='dl2' href="https://github.com/Tanitulger/Louhau-Browser/releases/latest/download/LouhauBrowser-Darwin64.zip" class="btn">Download for macOS</a>
 
-      
+      <script>
+        $.get("https://raw.githubusercontent.com/Tanitulger/Louhau-Browser/master/update.json?raw=true",
+  function(data){
+    //リクエストが成功した際に実行する関数
+    //alert("Data Loaded: " + data);
+          document.getElementById("dl").innerHTML += data;
+          document.getElementById("dl2").innerHTML += data;
+  }
+);
+          </script>
     </header>
 
     <main id="content" class="main-content" role="main">
